@@ -1,0 +1,156 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+* { box-sizing: border-box; }
+body { padding-top: 140px !important; }
+
+/* SLIDER */
+.announcement-slider {
+    position: fixed; top: 0; left: 0; width: 100%; height: 45px;
+    background: linear-gradient(90deg, #10B981, #34D399, #6EE7B7);
+    box-shadow: 0 3px 15px rgba(16,185,129,0.4);
+    z-index: 1050 !important; overflow: hidden;
+}
+
+/* NAVBAR */
+.navbar-custom {
+    background: linear-gradient(45deg, #1E3A8A, #1E40AF, #3B82F6);
+}
+
+.contact-hero {
+    background: linear-gradient(135deg, rgba(30,64,175,0.9), rgba(59,130,246,0.8)),
+                url('{% static "images/school.jpg" %}') center/cover;
+    min-height: 50vh;
+}
+
+.info-card, .form-card {
+    background: rgba(255,255,255,0.95);
+    border-radius: 20px;
+}
+
+.map-container {
+    height: 420px;
+}
+.map-container iframe {
+    width:100%;
+    height:100%;
+}
+</style>
+
+
+<!-- HERO -->
+<section class="contact-hero d-flex align-items-center text-white">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Contact Us</h1>
+        <p class="lead">Get in touch for admissions and inquiries</p>
+    </div>
+</section>
+
+
+<section class="py-5">
+<div class="container">
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success">
+{{ message }}
+</div>
+{% endfor %}
+{% endif %}
+
+
+<div class="row g-4">
+
+<!-- CONTACT INFO -->
+<div class="col-lg-4">
+<div class="info-card p-4">
+
+<h3>School Info</h3>
+
+<p>VCTM INTERNATIONAL SCHOOL</p>
+<p>Near Khair Road</p>
+<p>Aligarh, UP</p>
+
+<p><b>Phone:</b> +91 12345 67890</p>
+<p><b>Email:</b> info@modernschool.ac.in</p>
+
+</div>
+</div>
+
+
+<!-- MAP -->
+<div class="col-lg-8">
+<div class="map-container">
+
+<iframe
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1413.162469629!2d78.028656!3d27.883827"
+loading="lazy">
+</iframe>
+
+</div>
+</div>
+
+</div>
+
+
+<!-- CONTACT FORM -->
+<div class="row justify-content-center mt-5">
+
+<div class="col-lg-8">
+
+<div class="form-card p-5">
+
+<h2 class="text-center mb-4">Send Inquiry</h2>
+
+<form method="POST">
+{% csrf_token %}
+
+<div class="row g-3">
+
+<div class="col-md-6">
+{{ form.name.label_tag }}
+{{ form.name }}
+</div>
+
+<div class="col-md-6">
+{{ form.phone.label_tag }}
+{{ form.phone }}
+</div>
+
+<div class="col-md-6">
+{{ form.email.label_tag }}
+{{ form.email }}
+</div>
+
+<div class="col-md-6">
+{{ form.subject.label_tag }}
+{{ form.subject }}
+</div>
+
+<div class="col-12">
+{{ form.message.label_tag }}
+{{ form.message }}
+</div>
+
+</div>
+
+<div class="text-center mt-4">
+<button class="btn btn-primary btn-lg">
+Send Message
+</button>
+</div>
+
+</form>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+{% endblock %}

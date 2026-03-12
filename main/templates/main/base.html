@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Vivekananda College{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+        .navbar-custom {
+            background: linear-gradient(45deg, #1E3A8A, #1E40AF, #3B82F6) !important;
+            box-shadow: 0 4px 20px rgba(30,58,138,0.5);
+            margin-top: 45px;
+        }
+        .navbar-brand {
+            background: linear-gradient(45deg, #FFFFFF, #E5E5E5, #CCCCCC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800 !important;
+        }
+        .nav-link {
+            color: white !important;
+            font-weight: 600;
+            padding: 15px 25px !important;
+            transition: all 0.4s ease;
+            border-radius: 25px;
+            margin: 0 5px;
+        }
+        .nav-link:hover {
+            color: #E0E7FF !important;
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+          </style>
+</head>
+<body>
+    <!-- SLIDING ANNOUNCEMENT -->
+    <div class="announcement-slider position-fixed top-0 w-100" style="height: 45px;background: linear-gradient(90deg, #1E40AF, #3B82F6, #60A5FA); z-index: 1050; font-weight: 700; font-size: 0.9rem; color: #0F4725; overflow: hidden;">
+        <div style="display: inline-block; white-space: nowrap; padding: 12px 30px; animation: slide 18s linear infinite;">
+            🎉 Admissions Open | Limited Seats | Apply Now! &nbsp;&nbsp;&nbsp; 📚 Next Term April 2026 &nbsp;&nbsp;&nbsp; 📞 +91 12345 67890
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-2" href="{% url 'home' %}">
+                <i class="fas fa-graduation-cap me-2"></i>Vivekananda International School
+            </a>
+            <button class="navbar-toggler border-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}"><i class="fas fa-home me-1"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'admission' %}"><i class="fas fa-user-graduate me-1"></i>Admission</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'facilities' %}"><i class="fas fa-school me-1"></i>Facilities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'faculties' %}"><i class="fas fa-chalkboard-teacher me-1"></i>Faculty</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'management' %}"><i class="fas fa-users me-1"></i>Management</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}"><i class="fas fa-tachometer-alt me-1"></i>Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link text-danger" href="/student/"><i class="fas fa-user-graduate me-1"></i>Student</a></li>
+                    <li class="nav-item"><a class="nav-link text-success" href="/faculty/"><i class="fas fa-chalkboard-teacher me-1"></i>Faculty</a></li>
+                    <li class="nav-item">
+<a class="nav-link" href="{% url 'contact' %}">
+<i class="fas fa-phone"></i> Contact
+</a>
+</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div style="padding-top: 140px;">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        @keyframes slide {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</body>
+</html>

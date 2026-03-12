@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<div class="container py-5">
+    <div class="row text-center">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="display-4 fw-bold mb-4 text-info">👨‍🏫 Our Faculty</h1>
+            <p class="lead mb-5">Experienced educators shaping future leaders</p>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card shadow h-100 border-info">
+                        <div class="card-body">
+                            <i class="fas fa-user-graduate fa-4x text-info mb-3"></i>
+                            <h5>Dr. Ahmed Khan</h5>
+                            <p class="text-muted">Professor - Computer Science</p>
+                            <p class="text-info fw-bold">PhD (IIT Delhi)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card shadow h-100 border-primary">
+                        <div class="card-body">
+                            <i class="fas fa-user-graduate fa-4x text-primary mb-3"></i>
+                            <h5>Prof. Priya Sharma</h5>
+                            <p class="text-muted">Associate Professor - Mathematics</p>
+                            <p class="text-primary fw-bold">M.Tech (NIT)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card shadow h-100 border-success">
+                        <div class="card-body">
+                            <i class="fas fa-user-graduate fa-4x text-success mb-3"></i>
+                            <h5>Dr. Raj Patel</h5>
+                            <p class="text-muted">Assistant Professor - Physics</p>
+                            <p class="text-success fw-bold">PhD (IIT Bombay)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

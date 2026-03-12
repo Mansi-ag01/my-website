@@ -1,0 +1,289 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern School - Excellence in Education</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        * { box-sizing: border-box; }
+        body { padding-top: 140px !important; }
+
+        /* ROYAL BLUE SLIDING MESSAGE */
+        .announcement-slider {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 45px;
+            background: linear-gradient(90deg, #1E40AF, #3B82F6, #60A5FA);
+            box-shadow: 0 3px 15px rgba(30,64,175,0.4);
+            z-index: 1050 !important;
+            overflow: hidden;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+        .slide-text {
+            display: inline-block;
+            white-space: nowrap;
+            padding: 12px 30px;
+            animation: slideFix 18s linear infinite;
+        }
+        @keyframes slideFix {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* ROYAL BLUE NAVBAR */
+        .navbar-custom {
+            background: linear-gradient(45deg, #1E3A8A, #1E40AF, #3B82F6) !important;
+            box-shadow: 0 4px 20px rgba(30,58,138,0.5);
+            backdrop-filter: blur(15px);
+            border-bottom: 3px solid #3B82F6;
+            z-index: 1060 !important;
+            margin-top: 45px;
+        }
+        .navbar-custom .nav-link {
+            color: white !important;
+            font-weight: 600;
+            padding: 15px 25px !important;
+            transition: all 0.4s ease;
+            border-radius: 25px;
+            margin: 0 5px;
+        }
+        .navbar-custom .nav-link:hover {
+            color: #E0E7FF !important;
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(59,130,246,0.4);
+        }
+     .navbar-brand {
+      background: linear-gradient(45deg, #FFFFFF, #E5E5E5, #CCCCCC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800 !important;
+}
+
+
+        /* School Hero Background */
+        .school-hero {
+            background:
+                linear-gradient(135deg, rgba(25, 25, 112, 0.85) 0%, rgba(72, 61, 139, 0.75) 50%, rgba(138, 43, 226, 0.65) 100%),
+                url('{% static "images/school.jpg" %}') center/cover no-repeat;
+            min-height: 90vh;
+            position: relative;
+        }
+
+        /* Principal Card */
+        .principal-card {
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(25px);
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .icon-box {
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .icon-box:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: #3B82F6;
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2) !important;
+        }
+
+        /* Update all headings to royal blue */
+        h2 { color: #1E40AF !important; }
+
+        @media (max-width: 768px) {
+            .school-hero { min-height: 70vh; }
+            .display-3 { font-size: 2.2rem !important; }
+            body { padding-top: 160px !important; }
+        }
+
+        /* Footer hover effects */
+        .hover-text-primary:hover { color: #3B82F6 !important; }
+        .hover-zoom:hover { transform: scale(1.1); transition: 0.3s ease; }
+        .btn-circle { border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; }
+    </style>
+</head>
+<body>
+
+    <!-- ROYAL BLUE SLIDING MESSAGE -->
+    <div class="announcement-slider">
+        <div class="slide-text">
+            🎉 Admissions Open PG-Class V | Limited Seats Available | Apply Now! &nbsp;&nbsp;&nbsp;&nbsp;
+            📚 Next Term Starts April 2026 &nbsp;&nbsp;&nbsp;&nbsp;
+            💎 Free Assessment Camp This Weekend! &nbsp;&nbsp;&nbsp;&nbsp;
+            📞 Contact: +91 12345 67890
+        </div>
+    </div>
+
+    <!-- ROYAL BLUE NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-2" href="#">
+                <i class="fas fa-graduation-cap me-2"></i>VCTM INTERNATIONAL SCHOOL
+            </a>
+            <button class="navbar-toggler border-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}"><i class="fas fa-home me-1"></i>Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'admission' %}"><i class="fas fa-user-graduate me-1"></i>Admission</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'facilities' %}"><i class="fas fa-school me-1"></i>Facilities</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'faculties' %}"><i class="fas fa-chalkboard-teacher me-1"></i>Faculty</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'management' %}"><i class="fas fa-users me-1"></i>Management</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}"><i class="fas fa-tachometer-alt me-1"></i>Dashboard</a></li>
+    <li class="nav-item"><a class="nav-link text-danger" href="{% url 'student_portal' %}"><i class="fas fa-user-graduate me-1"></i>Student</a></li>
+    <li class="nav-item"><a class="nav-link text-success" href="{% url 'faculty_portal' %}"><i class="fas fa-chalkboard-teacher me-1"></i>Faculty</a></li>
+   <li class="nav-item">
+<a class="nav-link" href="{% url 'contact' %}">
+<i class="fas fa-phone"></i> Contact
+</a>
+</li>
+</ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <section class="school-hero d-flex align-items-center text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 animate__animated animate__fadeInLeft">
+                    <h1 class="display-3 fw-bold mb-4">Welcome to Excellence</h1>
+                    <p class="lead fs-4 mb-5">Nurturing young minds from Play Group to Class V with love & care</p>
+                    <a href="#" class="btn btn-light btn-lg px-5 py-3 fs-5 fw-bold shadow-lg animate__animated animate__pulse animate__infinite">
+                        <i class="fas fa-arrow-right me-2"></i>Start Admission
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRINCIPAL SECTION -->
+    <section class="py-5" style="background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h2 class="text-center mb-5 fw-bold" style="color: #065F46; font-size: 2.5rem;">Message from Principal</h2>
+                    <div class="principal-card p-5 rounded-5 shadow-xl mx-auto" style="max-width: 900px;">
+                        <div class="row align-items-center">
+                            <div class="col-md-4 text-center mb-4 mb-md-0">
+                                <img src="{% static 'images/principal2.jpg' %}"
+                                     class="rounded-circle img-fluid shadow-lg mx-auto d-block"
+                                     style="width: 250px; height: 250px; object-fit: cover; border: 6px solid #10B981;"
+                                     onerror="this.src='https://images.unsplash.com/photo-1502759683299-c573d0663384?w=300&fit=crop&crop=face'">
+                                <h5 class="mt-4 fw-bold" style="color: #065F46;">Yash Tripathi</h5>
+                                <p class="mb-0 fw-semibold text-muted">Principal</p>
+                            </div>
+                            <div class="col-md-8 ps-md-5">
+                                <blockquote class="blockquote fs-4 lh-lg" style="color: #374151; line-height: 1.7;">
+                                    "Every child is unique. Our school provides a nurturing environment where their dreams take flight
+                                    and their potential shines bright. We believe in holistic development through personalized attention."
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="py-5" style="background: #F8FAFC;">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold" style="color: #065F46; font-size: 2.5rem;">Why Choose Us?</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="icon-box text-center p-5 rounded-4 shadow-lg h-100 border-primary">
+                        <i class="fas fa-chalkboard-teacher" style="font-size: 4rem; color: #3B82F6;"></i>
+                        <h4 class="fw-bold mt-4 mb-3" style="color: #065F46;">Expert Faculty</h4>
+                        <p class="text-muted lead">20+ years experienced teachers passionate about early childhood education</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="icon-box text-center p-5 rounded-4 shadow-lg h-100 bg-primary text-white">
+                        <i class="fas fa-school" style="font-size: 4rem;"></i>
+                        <h4 class="fw-bold mt-4 mb-3">Modern Campus</h4>
+                        <p class="lead">AC Classrooms, playground, library, digital labs & activity rooms</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="icon-box text-center p-5 rounded-4 shadow-lg h-100 border-success">
+                        <i class="fas fa-users" style="font-size: 4rem; color: #10B981;"></i>
+                        <h4 class="fw-bold mt-4 mb-3" style="color: #065F46;">Personal Attention</h4>
+                        <p class="text-muted lead">1:15 teacher-student ratio ensures individual care</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COPYRIGHT FOOTER -->
+    <footer class="bg-dark text-white py-5 mt-auto" style="background: linear-gradient(135deg, #111827 0%, #1F2937 100%) !important;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-school fa-2x text-primary me-3"></i>
+                        <div>
+                            <h4 class="fw-bold mb-1" style="color: #10B981;">Modern School</h4>
+                            <p class="mb-0 text-muted">Excellence Since 2000</p>
+                        </div>
+                    </div>
+                    <p class="text-light opacity-90">Nurturing young minds for a bright future with personalized care and modern facilities.</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="fw-bold mb-3" style="color: #10B981;">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none opacity-90 hover-text-primary">Home</a></li>
+                        <li><a href="#" class="text-light text-decoration-none opacity-90 hover-text-primary">Admission</a></li>
+                        <li><a href="#" class="text-light text-decoration-none opacity-90 hover-text-primary">Facilities</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="fw-bold mb-3" style="color: #10B981;">Contact Info</h5>
+                    <div>
+                        <p class="mb-2"><i class="fas fa-map-marker-alt me-2 text-primary"></i>Aligarh, UP 202001</p>
+                        <p class="mb-2"><i class="fas fa-phone me-2 text-primary"></i>+91 12345 67890</p>
+                        <p class="mb-0"><i class="fas fa-envelope me-2 text-primary"></i>info@modernschool.ac.in</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5 class="fw-bold mb-3" style="color: #10B981;">Follow Us</h5>
+                    <div class="d-flex gap-3 mb-4">
+                        <a href="#" class="btn btn-outline-light btn-circle p-3 hover-zoom"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-circle p-3 hover-zoom"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-circle p-3 hover-zoom"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-circle p-3 hover-zoom"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 opacity-25">
+            <!-- OFFICIAL COPYRIGHT -->
+            <div class="text-center py-3">
+                <p class="fs-5 fw-bold text-light mb-1">
+                    <i class="fas fa-copyright text-primary me-2"></i>
+                    © 2026 VCTM Aligarh. All Rights Reserved.
+                </p>
+                <p class="text-muted small mb-0">Registered Educational Institution | Aligarh, Uttar Pradesh, India</p>
+            </div>
+        </div>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>

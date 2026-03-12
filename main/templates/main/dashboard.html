@@ -1,0 +1,67 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- PAGE TITLE -->
+    <div class="text-center mb-5">
+        <h1 class="fw-bold">Dashboard</h1>
+        <p class="text-muted">Welcome to the Digital Campus Management System</p>
+    </div>
+
+    <!-- DASHBOARD CARDS -->
+    <div class="row g-4">
+
+        <!-- STUDENT PORTAL -->
+        <div class="col-md-4">
+            <div class="card shadow h-100 text-center">
+                <div class="card-body">
+                    <h3 class="fw-bold">🎓 Student Portal</h3>
+                    <p>Access courses, results and updates.</p>
+
+                    <a href="{% url 'student_portal' %}" class="btn btn-primary w-100">
+                        Open Student Portal
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- FACULTY PORTAL -->
+        <div class="col-md-4">
+            <div class="card shadow h-100 text-center">
+                <div class="card-body">
+                    <h3 class="fw-bold">👨‍🏫 Faculty Portal</h3>
+                    <p>Manage classes and academic records.</p>
+
+                    <a href="{% url 'faculty_portal' %}" class="btn btn-success w-100">
+                        Open Faculty Portal
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ADMIN PORTAL -->
+        <div class="col-md-4">
+            <div class="card shadow h-100 text-center">
+                <div class="card-body">
+                    <h3 class="fw-bold">⚙️ Admin Panel</h3>
+                    <p>Control system and manage users.</p>
+
+                    <a href="{% url 'admin_panel' %}" class="btn btn-danger w-100 mb-2">
+                        Open Admin Panel
+                    </a>
+
+                    <!-- CREATE ADMIN BUTTON -->
+                    <a href="{% url 'register' %}" class="btn btn-outline-dark w-100">
+                        ➕ Create New Admin
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<style>
+.student-theme { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important; color: white; }
+.faculty-theme { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important; color: white; }
+.admin-theme { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%) !important; color: white; }
+</style>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow-lg border-0">
+                <div class="card-body p-5 text-center">
+
+                    {% if role == 'student' %}
+                        <i class="fas fa-user-graduate fa-4x text-primary mb-3"></i>
+                        <h2 class="mb-4 text-primary">👨‍🎓 Student Login</h2>
+                        <div class="student-theme p-4 rounded mb-4">
+                            <small>Access your results & student portal</small>
+                        </div>
+                    {% elif role == 'faculty' %}
+                        <i class="fas fa-chalkboard-teacher fa-4x text-success mb-3"></i>
+                        <h2 class="mb-4 text-success">👩‍🏫 Faculty Login</h2>
+                        <div class="faculty-theme p-4 rounded mb-4">
+                            <small>Manage classes & attendance</small>
+                        </div>
+                    {% elif role == 'admin' %}
+                        <i class="fas fa-cogs fa-4x text-danger mb-3"></i>
+                        <h2 class="mb-4 text-danger">🔐 Admin Login</h2>
+                        <div class="admin-theme p-4 rounded mb-4">
+                            <small>Full system management access</small>
+                        </div>
+                    {% else %}
+                        <i class="fas fa-sign-in-alt fa-4x text-primary mb-4"></i>
+                        <h2 class="mb-4">🔐 Login</h2>
+                    {% endif %}
+
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-danger">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error }}</div>
+                    {% endif %}
+
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-4">
+                            <input type="text" name="username" class="form-control form-control-lg"
+                                   placeholder="{% if role == 'student' %}Roll No{% elif role == 'faculty' %}Faculty ID{% else %}Username{% endif %}" required>
+                        </div>
+                        <div class="mb-4">
+                            <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg w-100 mb-3">
+                            <i class="fas fa-sign-in-alt me-2"></i>Login as {{ role|title }}
+                        </button>
+                    </form>
+
+                    <div class="mt-4">
+                        <a href="{% url 'dashboard' %}" class="btn btn-outline-secondary btn-lg w-100">
+                            ← Back to Dashboard
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

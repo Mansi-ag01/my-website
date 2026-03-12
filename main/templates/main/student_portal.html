@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<div class="container py-5 text-center">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <i class="fas fa-user-graduate fa-5x text-primary mb-4"></i>
+            <h1 class="display-4 fw-bold mb-4">👨‍🎓 Student Portal</h1>
+            <p class="lead mb-5">Check your results, attendance, and academic progress</p>
+
+            <div class="card shadow-lg border-0">
+                <div class="card-body p-5">
+                    <h3 class="text-primary mb-4">🚀 Coming Soon!</h3>
+                    <p class="fs-5">Login to access:</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><i class="fas fa-chart-line text-success"></i> Results & Grades</li>
+                        <li class="list-group-item"><i class="fas fa-calendar-check text-info"></i> Attendance</li>
+                        <li class="list-group-item"><i class="fas fa-book text-warning"></i> Study Materials</li>
+                        <li class="list-group-item"><i class="fas fa-bell text-danger"></i> Notifications</li>
+                    </ul>
+                    <div class="mt-5">
+                        <a href="{% url 'dashboard' %}" class="btn btn-outline-primary btn-lg me-3">← Back to Dashboard</a>
+                        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">📞 Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
