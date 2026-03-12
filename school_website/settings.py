@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'dev'  # Change in production
 DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['school-project-ipbe.onrender.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
